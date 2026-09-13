@@ -141,146 +141,346 @@
     .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
     .hero-photo { margin-top: 0; }
   }
+
+  .facts-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0 24px; }
+  .facts-row span { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; font-size: 15px; font-weight: 600; }
+  .compare { display: grid; gap: 18px; margin-bottom: 24px; }
+  .compare .col { border-radius: var(--radius); padding: 20px; border: 1px solid var(--line); }
+  .compare .old { background: var(--paper); color: var(--ink-soft); }
+  .compare .new { background: #fff; border: 2px solid var(--clay-dark); }
+  .compare h3 { font-size: 19px; }
+  .compare ul { margin: 0; padding-left: 20px; }
+  .compare li { margin-bottom: 8px; }
+  .days { display: grid; gap: 14px; }
+  .day { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; }
+  .day .n { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--clay-dark); margin-bottom: 6px; }
+  .day h3 { font-size: 19px; margin-bottom: .35em; }
+  .day p { margin: 0 0 .5em; color: var(--ink-soft); }
+  .day .task { font-weight: 600; color: var(--sage-dark); }
+  .case { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; margin-bottom: 18px; }
+  .case .who { font-weight: 800; font-size: 19px; }
+  .case .delta { font-size: 17px; color: var(--copper); font-weight: 700; margin: 4px 0 12px; }
+  .case ul { margin: 0 0 12px; padding-left: 20px; color: var(--ink-soft); }
+  .shots { display: grid; gap: 12px; margin-top: 14px; }
+  .shots figure { margin: 0; }
+  .shots img { border-radius: 12px; border: 1px solid var(--line); width: 100%; }
+  .shots figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 6px; }
+  .format-list { display: grid; gap: 14px; }
+  .format-list .card p { margin: 0; }
+  .note { font-size: 14px; color: var(--ink-soft); }
+  .expert-grid { display: grid; gap: 22px; }
+  .expert-grid img { border-radius: var(--radius); border: 1px solid var(--line); }
+  .expert-grid ul { padding-left: 20px; margin: 0 0 1em; }
+  .expert-grid li { margin-bottom: 10px; }
+  @media (min-width: 760px) {
+    .facts-row { grid-template-columns: repeat(4, 1fr); }
+    .compare { grid-template-columns: repeat(2, 1fr); }
+    .days { grid-template-columns: repeat(2, 1fr); }
+    .shots { grid-template-columns: repeat(3, 1fr); }
+    .format-list { grid-template-columns: repeat(2, 1fr); }
+    .expert-grid { grid-template-columns: 300px 1fr; align-items: start; }
+  }
 </style>
 </head>
 <body>
-
-<div class="draft-banner" id="draft-banner">Черновик страницы: тексты и оплата подключаются</div>
 
 <!-- 1. Заголовок и обещание -->
 <section class="hero alt" id="obeshchanie">
   <div class="wrap hero-grid">
     <div>
       <div class="kicker">Спринт ТурбоРилс · старт 14 сентября</div>
-      <h1>Своё дело из телефона</h1>
-      <p class="lead">Курс по Instagram от Анны Громовой.</p>
-      <div class="todo">Блок 1 - заголовок и обещание. Текст Марка (задача 390).</div>
+      <h1>Блог в Instagram<a href="#meta-note" class="fnref">*</a>, который растёт от часа в день</h1>
+      <p class="lead">Метод, по которому я выросла с 2&nbsp;204 до 55&nbsp;000 подписчиков: только телефон и ни рубля на рекламу, первые месяцы - с грудным сыном на руках. За 7 дней пройдёшь его целиком: от настройки аккаунта до первых денег с блога.</p>
+      <div class="facts-row">
+        <span>Старт 14 сентября</span>
+        <span>Около часа в день</span>
+        <span>Хватит телефона</span>
+        <span>Можно без лица в кадре</span>
+      </div>
     </div>
-    <div class="hero-photo case-shot" aria-hidden="true"></div>
+    <div><img class="hero-photo" src="/anna.jpg" alt="Анна Громова" loading="lazy"></div>
   </div>
 </section>
 <div class="cta-row alt"><div class="wrap">
-  <a class="btn js-cta" data-via="hero" href="#tarify">Выбрать тариф</a>
+  <a class="btn js-cta" data-via="hero" href="#tarify">Выбрать формат</a>
+  <p class="note" style="text-align:center; margin-top:10px">Продажи открыты до 17 сентября. Доступ к урокам приходит в течение суток после оплаты.</p>
 </div></div>
 
-<!-- 2. Для кого курс и с какими проблемами сталкивается сегмент -->
+<!-- 2. Для кого -->
 <section id="dlya-kogo">
   <div class="wrap">
     <div class="kicker">Для кого</div>
-    <h2>Кому подойдёт курс</h2>
-    <div class="todo">Блок 2 - для кого курс и с какими проблемами сталкивается сегмент.</div>
+    <h2>Узнаёшь себя хотя бы в одном - тебе сюда</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Своих денег нет</h3>
+        <p>Крем, бельё, любая мелочь для себя - и каждый раз маленький отчёт: «у меня есть на это деньги?». Хочется своего дохода, за который не надо отчитываться. И чтобы ради него не ездить в офис с 9 до 6.</p>
+      </div>
+      <div class="card">
+        <h3>Блога нет или он спит</h3>
+        <p>Страница на пару сотен подписчиков, последний пост - в прошлом году. Нормальная точка старта: у меня было 2&nbsp;204, свекровь начинала с нуля в 66 лет.</p>
+      </div>
+      <div class="card">
+        <h3>Умею, но про меня не знают</h3>
+        <p>Психолог, мастер, наставник, косметолог. Работаешь хорошо, а клиенты приходят только по сарафану, по одному в месяц. Нужны люди, которые приходят и пишут сами.</p>
+      </div>
+      <div class="card">
+        <h3>Пробовала, не пошло</h3>
+        <p>Писала сценарии и снимала красиво, а получала 200 просмотров и 8 лайков от родни. Руки опустились. Я через это тоже прошла.</p>
+      </div>
+    </div>
+    <p style="margin-top:20px">Общее у всех одно: времени мало, денег на рекламу нет, и снимать «как настоящий блогер» нет ни сил, ни желания. Под это ТурбоРилс и собран.</p>
   </div>
 </section>
 
-<!-- 3. Почему старое решение не работает, а наш метод работает -->
+<!-- 3. Почему старое не работает -->
 <section class="alt" id="metod">
   <div class="wrap">
     <div class="kicker">Метод</div>
-    <h2>Почему это работает</h2>
-    <div class="todo">Блок 3 - почему старое решение не работает, а новое работает.</div>
+    <h2>Зачем растягивать на три месяца то, что проходится за неделю</h2>
+    <div class="compare">
+      <div class="col old">
+        <h3>Как обычно учат вести блог</h3>
+        <ul>
+          <li>Курс на 2-3 месяца, и треть в нём - теория «для веса»</li>
+          <li>Сценарий, свет, образ, монтаж: полдня на один ролик</li>
+          <li>Запал кончается раньше, чем приходит первый результат</li>
+          <li>Ставка на один вирусный ролик, который то ли будет, то ли нет</li>
+        </ul>
+      </div>
+      <div class="col new">
+        <h3>Как в ТурбоРилс</h3>
+        <ul>
+          <li>7 дней, в каждом - урок и сразу задание</li>
+          <li>Ролик собирается за 3-5 минут, можно не вставая с кровати</li>
+          <li>Неделя - срок, за который мотивация не успевает сдуться</li>
+          <li>Ставка на объём: 10 рилс в день, и алгоритм сам находит твоих людей</li>
+        </ul>
+      </div>
+    </div>
+    <p>Мы с мужем сначала делали всё по учебнику. Часами писали сценарии, упаковывали глубокие смыслы - и собирали по 200-300 просмотров. Тогда собрали систему для себя: выкинули всё, что не двигает аккаунт, и оставили то, что двигает.</p>
+    <p>В новогодние каникулы я не каталась на борде и не летала в отпуск. Гуляла с сыном в парке и пилила по 10 роликов в день. Итог: больше 5&nbsp;000 новых подписчиков и первый в моей жизни рилс-миллионник - 1&nbsp;005&nbsp;275 просмотров.</p>
+    <div class="shots" style="max-width:420px">
+      <figure>
+        <img src="/delo/img/case-02-million.jpg" alt="Скриншот статистики: 1 005 275 просмотров" loading="lazy" width="511" height="800">
+        <figcaption>Первый рилс-миллионник - 1 005 275 просмотров, 4 января 2026</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<!-- 4. Кейсы и доказательства -->
+<!-- 4. Кейсы -->
 <section id="keisy">
   <div class="wrap">
     <div class="kicker">Результаты</div>
-    <h2>Кейсы</h2>
-    <div class="todo" style="margin-bottom:16px">Блок 4 - кейсы и доказательства. Скрины - из папки «лендинг delo - кейсы-скриншоты».</div>
-    <div class="cases">
-      <div class="case-shot" aria-hidden="true"></div>
-      <div class="case-shot" aria-hidden="true"></div>
-      <div class="case-shot" aria-hidden="true"></div>
+    <h2>Результаты - в профилях. Открой и проверь</h2>
+
+    <div class="case">
+      <div class="who">Я, @luckyanni777</div>
+      <div class="delta">Было 2 204 → стало 55 000+</div>
+      <p>Как это шло:</p>
+      <ul>
+        <li>январь 2026 - 7 404 подписчика и 5,6 млн просмотров за месяц</li>
+        <li>первые 30 дней - 18 799 подписчиков</li>
+        <li>20 апреля - 28,2 тысячи</li>
+        <li>9 мая - 31,8 тысячи и 10,3 млн просмотров за месяц</li>
+        <li>10 сентября - больше 55 тысяч</li>
+      </ul>
+      <p>Примерно с 8 тысяч подписчиков пошли предложения: сначала товары по бартеру, потом за деньги. С мая, через 5 месяцев после старта, доход с блога выше медианной зарплаты по стране.</p>
+      <div class="shots">
+        <figure>
+          <img src="/delo/img/case-01-jan2026.jpg" alt="7 404 подписчика и 5,6 млн просмотров, январь 2026" loading="lazy" width="800" height="663">
+          <figcaption>7 404 подписчика, 5,6 млн просмотров - январь 2026</figcaption>
+        </figure>
+        <figure>
+          <img src="/delo/img/case-03-apr2026.jpg" alt="28,2 тысячи подписчиков, 20 апреля 2026" loading="lazy" width="800" height="367">
+          <figcaption>28,2 тысячи подписчиков - 20.04.2026</figcaption>
+        </figure>
+        <figure>
+          <img src="/delo/img/case-04-may2026.jpg" alt="31,8 тысячи подписчиков и 10,3 млн просмотров, 9 мая 2026" loading="lazy" width="800" height="587">
+          <figcaption>31,8 тысячи подписчиков, 10,3 млн просмотров - 09.05.2026</figcaption>
+        </figure>
+      </div>
     </div>
+
+    <div class="case">
+      <div class="who">Моя свекровь, @ai_groma, 66 лет</div>
+      <div class="delta">Было 0 → стало 22,9 тысячи</div>
+      <p>Блог никогда не вела, видео не снимала, в алгоритмах не разбиралась. 3 марта впервые в жизни поставила себе Instagram. В середине апреля у неё было 20 тысяч подписчиков. Метод тот же: 10 рилс в день, час времени.</p>
+      <div class="todo">Скрин кейса - от оператора.</div>
+    </div>
+
+    <div class="case">
+      <div class="who">@sv.chel, эзотерик, наставник</div>
+      <div class="delta">Было 1 790 → стало 31 900 за 4 месяца</div>
+      <p>Рост почти в 18 раз. Своими словами: «Прохождение ТурбоРилс стало для меня трансформационным, несмотря на все мои предыдущие проработки».</p>
+      <div class="todo">Скрин кейса - от оператора.</div>
+    </div>
+
+    <div class="case">
+      <div class="who">Мой муж, новый аккаунт</div>
+      <div class="delta">Было 0 → 7 тысяч за полтора месяца</div>
+      <p>В январе завёл аккаунт с нуля и за полтора месяца вырос до 7 тысяч подписчиков. Ноль - нормальная точка старта.</p>
+    </div>
+
+    <p class="note">Результат зависит от того, сколько роликов ты реально выложишь. Метод один, а темп у каждой свой.</p>
   </div>
 </section>
 <div class="cta-row"><div class="wrap">
   <a class="btn js-cta" data-via="cases" href="#tarify">Хочу так же</a>
 </div></div>
 
-<!-- 5. Маршрут до результата -->
+<!-- 5. Маршрут -->
 <section class="alt" id="marshrut">
   <div class="wrap">
     <div class="kicker">Маршрут</div>
-    <h2>Шаги до результата</h2>
-    <div class="todo">Блок 5 - какие шаги пройдём, чтобы получить результат.</div>
+    <h2>7 дней - 7 шагов. Каждый день урок и задание</h2>
+    <div class="days">
+      <div class="day"><div class="n">День 1</div><h3>Аккаунт и техника</h3>
+        <p>Заводишь аккаунт или берёшь готовый так, чтобы он не потерял доверие алгоритма, и прогреваешь его по схеме за несколько дней. Разберём, какой телефон подойдёт (порог - iPhone 11-12, объясню почему) и какие два приложения нужны для работы.</p></div>
+      <div class="day"><div class="n">День 2</div><h3>Как устроен Instagram в 2026</h3>
+        <p>Алгоритмов у него на самом деле три: для сторис, для постов и для рилс. Разберём, откуда берётся бесплатный трафик и как следить за трендами. Хук, траст, ретеншн, би-ролл - объясню простыми словами.</p></div>
+      <div class="day"><div class="n">День 3 · главный</div><h3>Производство рилс</h3>
+        <p>Система «ТурбоРилс: шпионаж»: находишь ролик, который уже залетел, и за 3-5 минут собираешь свой. Хуки по технике «Мост», способ совсем без съёмки, монтаж в Edits, список аккаунтов для идей.</p>
+        <p class="task">Задание: 2 рилса.</p></div>
+      <div class="day"><div class="n">День 4</div><h3>ИИ в помощь</h3>
+        <p>Какие нейросети брать и где, без танцев с ВПН. Стартовый набор промтов для Instagram, свой ИИ-аватар и помощник, который переписывает хуки.</p>
+        <p class="task">Задание: 4 рилса.</p></div>
+      <div class="day"><div class="n">День 5</div><h3>Шапка и призывы к действию</h3>
+        <p>Упаковываем профиль по алгоритму готовым промтом за один вечер. Три места, где обязателен призыв к действию, - после них зритель подписывается и пишет.</p>
+        <p class="task">Задание: 6 рилсов.</p></div>
+      <div class="day"><div class="n">День 6</div><h3>Безопасность и лайфхаки</h3>
+        <p>Пробный режим и траст аккаунта. Что делать при страйке - с готовыми шаблонами писем в поддержку. И хуки, которые у участников залетали на миллион.</p>
+        <p class="task">Задание: 8 рилсов.</p></div>
+      <div class="day"><div class="n">День 7</div><h3>Деньги</h3>
+        <p>Как переводить аудиторию из Instagram в Telegram и с какого недорогого продукта начинать продажи. Оплата с чеками, самозанятость или ИП, ведение чужих аккаунтов за 30-100 тысяч в месяц.</p>
+        <p class="task">Задание: 10 рилсов в день - и дальше в том же темпе.</p></div>
+    </div>
+    <p style="margin-top:20px">К концу недели ты выкладываешь по 10 роликов в день. Дальше всё упирается в одно - удержать темп. Большинство бросает на 2-3 день, когда миллион не прилетел сразу. Для тех, кто хочет дойти, есть марафон.</p>
   </div>
 </section>
 
-<!-- 6. Формат продукта -->
+<!-- 6. Формат -->
 <section id="format">
   <div class="wrap">
     <div class="kicker">Формат</div>
-    <h2>Как проходит обучение</h2>
-    <div class="todo">Блок 6 - формат продукта.</div>
+    <h2>Как проходит</h2>
+    <div class="format-list">
+      <div class="card"><h3>Где</h3><p>Закрытый Telegram-канал: уроки текстом и пошаговые скринкасты. Никаких платформ и паролей, всё в телефоне.</p></div>
+      <div class="card"><h3>Когда</h3><p>Доступ приходит в течение суток после оплаты. Уроки открыты сразу все, идёшь по одному дню в день.</p></div>
+      <div class="card"><h3>Сколько времени</h3><p>Около часа в день. Первые два дня чуть больше: там настройка.</p></div>
+      <div class="card"><h3>Что нужно</h3><p>Телефон. Студия, свет, камера и умение танцевать в сторис не нужны. Есть форматы, где лицо в кадре не показываешь вообще.</p></div>
+      <div class="card"><h3>Марафон</h3><p>30 дней в группе со мной. Каждый день 10 рилс и короткий отчёт в чат: сколько выложила и где застряла. Я читаю отчёты, отвечаю на вопросы и подсказываю, что подкрутить. Одна бросает на третий день, в группе доходят до конца.</p></div>
+    </div>
   </div>
 </section>
 
-<!-- 7. Регалии эксперта -->
+<!-- 7. Регалии -->
 <section class="alt" id="ekspert">
   <div class="wrap">
     <div class="kicker">Эксперт</div>
-    <h2>Анна Громова</h2>
-    <div class="todo">Блок 7 - регалии эксперта.</div>
-  </div>
-</section>
-
-<!-- 8. Цена продукта и наполнение тарифов -->
-<section id="tarify">
-  <div class="wrap">
-    <div class="kicker">Тарифы</div>
-    <h2>Выбери свой формат</h2>
-    <div class="tariffs">
-      <div class="card tariff">
-        <h3>Спринт</h3>
-        <div class="price">8 990 ₽</div>
+    <h2>Кто я</h2>
+    <div class="expert-grid">
+      <img src="/anna.jpg" alt="Анна Громова" loading="lazy">
+      <div>
+        <p><strong>Анна Громова, 41 год. Журналист, психолог-сексолог.</strong></p>
         <ul>
-          <li>7 дней</li>
-          <li>Самостоятельно</li>
+          <li>Больше 10 лет шеф-редактор в СМИ: «Лайф Ньюс», «Комсомольская правда», «Царьград», «Вкурсе.ру». Делала миллионные охваты в онлайн-таблоидах - и знаю, на что человек нажимает, а мимо чего листает.</li>
+          <li>В Instagram по системе ТурбоРилс с января 2026. С 2 204 до 55 000 подписчиков, больше десятка роликов с миллионом просмотров.</li>
+          <li>Всё делала сама, первые месяцы с грудным сыном на руках, без нянь и бабушек.</li>
+          <li>С мая доход с блога выше медианной зарплаты по стране (75 000 ₽), сейчас выше средней - 114 743 ₽ по данным Росстата.</li>
         </ul>
-        <div class="todo">Наполнение тарифа - текст Марка.</div>
-        <a class="btn js-pay" data-product="delo_sprint" data-tariff="sprint" href="#tarify">Купить Спринт</a>
-      </div>
-      <div class="card tariff featured">
-        <span class="badge">С поддержкой Ани</span>
-        <h3>Марафон</h3>
-        <div class="price">29 990 ₽</div>
-        <ul>
-          <li>30 дней</li>
-          <li>В группе с поддержкой Ани</li>
-        </ul>
-        <div class="todo">Наполнение тарифа - текст Марка.</div>
-        <a class="btn js-pay" data-product="delo_marafon" data-tariff="marafon" href="#tarify">Купить Марафон</a>
-      </div>
-      <div class="card tariff">
-        <h3>ВИП</h3>
-        <div class="price">69 990 ₽</div>
-        <div class="todo">Наполнение тарифа - текст Марка.</div>
-        <a class="btn btn-outline js-pay" data-product="delo_vip" data-tariff="vip" href="#tarify">Купить ВИП</a>
+        <p class="note">Систему мы собрали вдвоём с мужем, Александром Громовым. Он больше 20 лет руководил медиа, в том числе медиахолдингом на 100+ человек, преподавал цифровизацию в Иннополисе. В курсе он отвечает за ИИ и воронки, я - за рилс, тексты и смыслы.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 9. FAQ - снятие возражений -->
+<!-- 8. Цена и тарифы -->
+<section id="tarify">
+  <div class="wrap">
+    <div class="kicker">Тарифы</div>
+    <h2>Выбери формат</h2>
+    <p class="lead">Старт 14 сентября. Продажи до 17 сентября.</p>
+    <div class="tariffs">
+
+      <div class="card tariff">
+        <h3>Спринт</h3>
+        <p class="note">7 дней, сама в своём темпе</p>
+        <div class="price">8 990 ₽</div>
+        <ul>
+          <li>7 дней уроков в закрытом Telegram-канале</li>
+          <li>Промты и шаблоны к каждому дню</li>
+          <li>Список аккаунтов для идей и ресёрча</li>
+          <li>Все обновления курса бесплатно</li>
+        </ul>
+        <a class="btn js-pay" data-product="delo_sprint" data-tariff="sprint" href="#tarify">Беру спринт</a>
+      </div>
+
+      <div class="card tariff featured">
+        <span class="badge">Чтобы дойти до результата</span>
+        <h3>Марафон</h3>
+        <p class="note">Уроки спринта + 30 дней в группе со мной</p>
+        <div class="price">29 990 ₽ <small>меньше тысячи рублей в день</small></div>
+        <ul>
+          <li>Всё из спринта</li>
+          <li>30 дней в группе: 10 рилс в день и ежедневный отчёт</li>
+          <li>Моя обратная связь по отчётам и ответы в чате</li>
+          <li>Закрытый список хуков, залетевших на миллион</li>
+        </ul>
+        <a class="btn js-pay" data-product="delo_marafon" data-tariff="marafon" href="#tarify">Иду в марафон</a>
+      </div>
+
+      <!-- VIP stays hidden until Anna confirms the tariff (Mark's note, task 390). -->
+      <div class="card tariff" id="tariff-vip" hidden>
+        <span class="badge">4 места</span>
+        <h3>ВИП</h3>
+        <p class="note">Марафон + личная работа со мной</p>
+        <div class="price">69 990 ₽</div>
+        <ul>
+          <li>Всё из марафона</li>
+          <li>Разбор твоего профиля до старта</li>
+          <li>4 личных зума, раз в неделю: шапка и упаковка, разбор рилс и хуков, разбор статистики, личный план монетизации</li>
+          <li>Приоритетный ответ в чате</li>
+        </ul>
+        <p class="note">Зумы веду я. Когда разговор дойдёт до ИИ и воронок, подключается Саша. Мест 4, потому что на личную работу у меня 4 часа в неделю. Пятый человек в них уже не влезет.</p>
+        <a class="btn btn-outline js-pay" data-product="delo_vip" data-tariff="vip" href="#tarify">Забронировать место</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 9. Вопросы -->
 <section class="alt faq" id="faq">
   <div class="wrap">
     <div class="kicker">Вопросы</div>
-    <h2>Частые вопросы</h2>
-    <div class="todo" style="margin-bottom:16px">Блок 9 - FAQ, снятие возражений.</div>
-    <details><summary>Вопрос</summary><p>Ответ.</p></details>
+    <h2>Остались вопросы</h2>
+    <details><summary>Как проходит обучение?</summary><p>В закрытом Telegram-канале: уроки текстом и пошаговые скринкасты. Скачивать ничего не нужно, всё уже есть в твоём телефоне. Читаешь, смотришь, повторяешь - и набираешь подписчиков.</p></details>
+    <details><summary>Нужны дорогая камера, студия или последний айфон?</summary><p>Нет. Алгоритмы в 2026 году смотрят в первую очередь на досматриваемость, её и учимся поднимать. Студия и свет не нужны. По телефону: рабочий порог - iPhone 11-12, в первый день разбираю, почему так и что делать с Android.</p></details>
+    <details><summary>Я стесняюсь камеры. Мне точно подойдёт?</summary><p>Да. Способ, на котором стоит весь курс, вообще не требует показывать лицо: видео на фоне, текст поверх. Первые десятки роликов можно сделать, ни разу не включив фронталку. Показаться в кадре захочется потом, когда пойдут просмотры и комментарии, - а может, и не захочется, это тоже нормально.</p></details>
+    <details><summary>Сколько времени нужно в день?</summary><p>В среднем час. Первые пару дней чуть больше, пока настраиваешь аккаунт.</p></details>
+    <details><summary>У меня 0 подписчиков и пустой профиль. Это не поздно?</summary><p>Это лучший вариант. Не надо чистить аккаунт от ботов или покупать новый. Свежим аккаунтам, которые с первого дня работают по системе, алгоритм даёт очень хороший охват. Моя свекровь начинала с нуля в 66 лет - сейчас у неё 22,9 тысячи.</p></details>
+    <details><summary>Меня не заблокируют за ИИ или чужие идеи?</summary><p>Весь 6-й день про безопасность. Как настроить аккаунт, чтобы снизить риск бана, и что делать, если всё-таки прилетел страйк: там готовые шаблоны писем в поддержку.</p></details>
+    <details><summary>Я уже покупала курсы по рилс и всё забросила. Чем этот лучше?</summary><p>Мы тоже покупали курсы, и по инсте тоже, - страшно считать, сколько туда ушло. Эта схема работает сейчас, в 2026, и кейсы выше тому подтверждение. Сколько она ещё продержится, не знает никто, кроме директора Instagram. Поэтому брать её стоит сейчас. А чтобы не забросить, есть марафон: 30 дней в группе с ежедневным отчётом.</p></details>
+    <details><summary>А если не справлюсь сама?</summary><p>Возьми марафон: там я каждый день рядом, читаю отчёты и отвечаю. Если нужен личный разбор твоего профиля - ВИП, пока там есть места.</p></details>
+    <details><summary>Чем спринт отличается от марафона?</summary><p>Спринт - 7 дней уроков, проходишь сама. Марафон - те же уроки плюс 30 дней в группе со мной: каждый день 10 рилс, отчёт и моя обратная связь. Метод один. Разница в том, дойдёшь ли ты до результата одна или вместе с группой.</p></details>
+    <details><summary>Можно вернуть деньги?</summary><p>Да, по условиям оферты. Пока доступ к урокам не открыт, возвращаю всю сумму. После открытия - за вычетом того, что уже пройдено.</p></details>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <div class="links">
-      <a href="https://bekaif.payform.ru/rest/school/getPublicOffer?offerId=86469" target="_blank" rel="noopener">Публичная оферта</a>
+      <a href="https://bekaif.payform.ru/rest/school/getPublicOffer?offerId=86469" target="_blank" rel="noopener">Договор-оферта</a>
       <a href="https://widget.prodamus.ru/src/privacy/policy_on_processing_and_protection_of_personal_data.pdf" target="_blank" rel="noopener">Политика обработки персональных данных</a>
       <a href="https://widget.prodamus.ru/src/privacy/consent__to_the_processing_of_personal_data.pdf" target="_blank" rel="noopener">Согласие на обработку персональных данных</a>
     </div>
     <p>Вопросы по оплате и доступу: <a href="https://t.me/LubovForte" target="_blank" rel="noopener">@LubovForte</a></p>
     <p>ИП Громова Анна Михайловна · ИНН 590313170202 · ОГРНИП 326508100331630</p>
+    <p id="meta-note" class="note">* Instagram принадлежит компании Meta, деятельность которой признана экстремистской и запрещена в России.</p>
+    <p class="note">Результаты участников индивидуальны и зависят от того, сколько заданий человек выполнил. Цифры в кейсах - на даты, указанные у скриншотов.</p>
+    <p class="note">© 2026 Анна Громова</p>
   </div>
 </footer>
 
