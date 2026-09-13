@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!-- Draft: copy is a placeholder until Mark delivers the school texts. Remove noindex and the draft banner together. -->
+<!-- Draft: remove noindex and the draft banner together, once Mark signs off the copy. -->
 <meta name="robots" content="noindex, nofollow">
 <title>Школа КАЙФа - Анна Громова</title>
-<meta name="description" content="Школа КАЙФа Анны Громовой: отношения и тело на интенсиве «Формула Кайфа», своё дело из телефона на курсе по Instagram.">
+<meta name="description" content="Школа КАЙФа Анны Громовой. Кайф - это и есть жизнь: тело как метод, отношения без войны, своё дело из телефона.">
 <meta name="theme-color" content="#FBF7F0">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%238F3F2B'/><text x='50' y='54' font-family='sans-serif' font-weight='700' font-size='54' text-anchor='middle' dominant-baseline='middle' fill='%23FBF7F0'>К</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;800&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
   /* Palette and type per brand doc 2 «Эстетика и палитра», 25.08.2026. */
   :root {
@@ -26,8 +26,10 @@
     --sage-dark: #4E6B55;
     --copper: #A97517;
     --line: #E6DCCB;
-    --radius: 18px;
+    --radius: 20px;
     --gutter: 20px;
+    --shadow-soft: 0 18px 44px rgba(34, 29, 24, .07);
+    --shadow-lift: 0 26px 60px rgba(34, 29, 24, .12);
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -35,145 +37,454 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font: 17px/1.55 "Onest", Manrope, "Segoe UI", Roboto, sans-serif;
+    font: 17px/1.6 "Onest", Manrope, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
+  body::selection, ::selection { background: var(--clay-dark); color: #fff; }
   img { max-width: 100%; height: auto; display: block; }
-  h1, h2, h3 { line-height: 1.12; margin: 0 0 .5em; font-weight: 800; letter-spacing: -.01em; }
-  h1 { font-size: clamp(32px, 8vw, 56px); }
-  h2 { font-size: clamp(26px, 6vw, 40px); }
-  h3 { font-size: 22px; }
+  h1, h2, h3 { line-height: 1.1; margin: 0 0 .5em; font-weight: 800; letter-spacing: -.02em; }
+  h1 { font-size: clamp(34px, 8vw, 62px); }
+  h2 { font-size: clamp(27px, 5.4vw, 44px); }
+  h3 { font-size: 21px; letter-spacing: -.01em; }
   p { margin: 0 0 1em; }
   a { color: var(--clay-dark); }
-  .wrap { max-width: 1040px; margin: 0 auto; padding-inline: var(--gutter); }
-  section { padding-block: 56px; }
+  .wrap { max-width: 1060px; margin: 0 auto; padding-inline: var(--gutter); }
+  .narrow { max-width: 760px; }
+  section { padding-block: 64px; position: relative; }
   .alt { background: var(--paper-solid); }
-  .kicker { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--clay-dark); font-weight: 700; margin-bottom: 12px; }
-  .lead { font-size: 19px; color: var(--ink-soft); }
 
-  /* Stories and quotes: serif layer per brand doc 2 (Lora). */
-  blockquote {
-    font-family: "Lora", "PT Serif", Georgia, serif;
-    font-size: 19px; line-height: 1.6; margin: 0 0 1em;
-    padding-left: 18px; border-left: 3px solid var(--sage);
+  /* Soft brand haze: depth without imagery, kept faint so paper stays paper. */
+  .haze { position: fixed; border-radius: 50%; filter: blur(130px); pointer-events: none; z-index: -1; }
+  .haze-1 { top: -18%; left: -12%; width: 46vw; height: 46vw; background: rgba(192, 90, 62, .13); }
+  .haze-2 { bottom: -20%; right: -14%; width: 48vw; height: 48vw; background: rgba(110, 140, 116, .13); }
+
+  .kicker {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--clay-dark); font-weight: 700; margin-bottom: 16px;
   }
-  blockquote cite { display: block; margin-top: .6em; font-size: 15px; font-style: normal; color: var(--ink-soft); }
+  .kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--clay); animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .45; transform: scale(.8); } }
+  .lead { font-size: 19px; color: var(--ink-soft); }
+  .eyebrow { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+
+  /* Serif layer for her own voice: brand doc 2 assigns Lora to stories and quotes. */
+  blockquote, .serif {
+    font-family: "Lora", "PT Serif", Georgia, serif;
+    font-size: 20px; line-height: 1.62;
+  }
+  blockquote { margin: 0 0 1em; padding-left: 20px; border-left: 3px solid var(--sage); }
+  blockquote cite { display: block; margin-top: .7em; font-size: 15px; font-style: normal; font-family: "Onest", sans-serif; color: var(--ink-soft); }
+
+  /* Scroll reveal: plain IntersectionObserver, no library. */
+  [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1); }
+  [data-reveal].is-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity: 1; transform: none; transition: none; }
+    .kicker .dot, .marquee-track { animation: none; }
+    html { scroll-behavior: auto; }
+  }
 
   .draft-banner { background: var(--ink); color: var(--paper); font-size: 13px; text-align: center; padding: 8px var(--gutter); }
-  .todo { border: 2px dashed var(--clay); border-radius: var(--radius); padding: 16px; color: var(--ink-soft); background: rgba(192, 90, 62, .06); font-size: 15px; }
+  .todo { border: 2px dashed var(--clay); border-radius: 14px; padding: 14px 16px; color: var(--ink-soft); background: rgba(192, 90, 62, .06); font-size: 15px; }
 
-  header { position: sticky; top: 0; z-index: 10; background: rgba(251, 247, 240, .94); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
-  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 62px; }
+  header { position: sticky; top: 0; z-index: 40; background: rgba(251, 247, 240, .82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color .3s, box-shadow .3s, background .3s; }
+  header.scrolled { border-bottom-color: var(--line); box-shadow: 0 6px 24px rgba(34, 29, 24, .05); background: rgba(251, 247, 240, .94); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
   .logo { font-weight: 800; font-size: 18px; color: var(--ink); text-decoration: none; letter-spacing: -.01em; }
-  header nav { display: flex; gap: 18px; font-size: 15px; }
-  header nav a { color: var(--ink-soft); text-decoration: none; }
+  .logo span { color: var(--clay-dark); }
+  header nav { display: flex; gap: 20px; font-size: 15px; }
+  header nav a { color: var(--ink-soft); text-decoration: none; transition: color .2s; }
   header nav a:hover { color: var(--clay-dark); }
 
   .btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    min-height: 56px; padding: 14px 28px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 56px; padding: 15px 30px;
     border-radius: 999px; border: 0;
     background: var(--clay-dark); color: #fff;
-    font: 700 18px/1.2 "Onest", Manrope, "Segoe UI", Roboto, sans-serif;
+    font: 700 17px/1.2 "Onest", Manrope, "Segoe UI", Roboto, sans-serif;
     text-decoration: none; text-align: center; cursor: pointer;
-    box-shadow: 0 8px 22px rgba(143, 63, 43, .22);
-    transition: background .15s, transform .1s;
+    box-shadow: 0 10px 26px rgba(143, 63, 43, .24);
+    transition: background .2s, transform .15s, box-shadow .25s;
   }
-  .btn:hover { background: var(--clay-darker); }
+  .btn:hover { background: var(--clay-darker); box-shadow: 0 14px 34px rgba(143, 63, 43, .32); transform: translateY(-2px); }
   .btn:active { transform: scale(.98); }
+  .btn .arr { transition: transform .2s; }
+  .btn:hover .arr { transform: translateX(4px); }
   .btn-outline { background: transparent; color: var(--clay-dark); border: 2px solid var(--clay-dark); box-shadow: none; }
-  .btn-outline:hover { background: rgba(143, 63, 43, .06); color: var(--clay-darker); }
+  .btn-outline:hover { background: rgba(143, 63, 43, .07); color: var(--clay-darker); box-shadow: none; }
+  .btn-ghost { background: var(--paper); color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
+  .btn-ghost:hover { background: #fff; color: var(--ink); box-shadow: var(--shadow-soft); }
+  .btn-note { margin-top: 12px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
 
-  .hero { padding-block: 52px 36px; background: var(--paper-solid); }
-  .hero .btn { width: 100%; max-width: 420px; }
-
-  .tracks { display: grid; gap: 20px; }
-  .track {
-    background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 24px; display: flex; flex-direction: column; gap: 12px;
+  /* Hero */
+  .hero { padding-block: 44px 56px; overflow: hidden; }
+  .hero-grid { display: grid; gap: 32px; align-items: center; }
+  .hero h1 { margin-bottom: 18px; }
+  .hero h1 .accent { color: var(--clay-dark); }
+  .hero .lead { font-size: 20px; max-width: 34em; }
+  .hero-cta { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; }
+  .hero-cta .btn { width: 100%; }
+  .portrait { position: relative; }
+  .portrait img { border-radius: 26px; box-shadow: var(--shadow-lift); }
+  .portrait::after {
+    content: ""; position: absolute; inset: -22px -22px auto auto; width: 62%; height: 62%;
+    background: radial-gradient(circle, rgba(169, 117, 23, .22), transparent 68%); filter: blur(28px); z-index: -1;
   }
-  .track .tag { align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--sage-dark); border-radius: 999px; padding: 4px 12px; }
+  .portrait-badge {
+    position: absolute; left: 14px; bottom: 14px; right: 14px;
+    background: rgba(251, 247, 240, .92); backdrop-filter: blur(8px);
+    border: 1px solid var(--line); border-radius: 16px; padding: 12px 16px;
+    display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow-soft);
+  }
+  .portrait-badge b { display: block; font-size: 15px; }
+  .portrait-badge span { font-size: 13px; color: var(--ink-soft); }
+  .verified { width: 26px; height: 26px; border-radius: 50%; background: var(--sage-dark); color: #fff; display: grid; place-items: center; flex: none; }
+
+  /* Growth strip: before / after */
+  .growth { display: grid; grid-template-columns: auto auto auto; gap: 18px; align-items: center; justify-content: start; margin-top: 28px; padding: 16px 20px; background: var(--paper-solid); border: 1px solid var(--line); border-radius: 18px; }
+  .growth .was .n { font-size: 22px; font-weight: 800; color: var(--ink-soft); text-decoration: line-through; }
+  .growth .now .n { font-size: 34px; font-weight: 800; color: var(--clay-dark); line-height: 1; }
+  .growth .cap { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-top: 4px; }
+  .growth .arrow { color: var(--clay); }
+  .growth-note { font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
+
+  /* Cards */
+  .card {
+    background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px; box-shadow: var(--shadow-soft);
+    transition: transform .35s cubic-bezier(.175,.885,.32,1.275), border-color .3s, box-shadow .3s;
+  }
+  .card:hover { border-color: rgba(143, 63, 43, .42); box-shadow: var(--shadow-lift); transform: translateY(-4px); }
+  .alt .card { background: #fff; }
+  .icon-tile { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; margin-bottom: 18px; background: rgba(192, 90, 62, .1); border: 1px solid rgba(192, 90, 62, .22); color: var(--clay-dark); }
+  .icon-tile.sage { background: rgba(110, 140, 116, .12); border-color: rgba(110, 140, 116, .28); color: var(--sage-dark); }
+  .icon-tile.copper { background: rgba(169, 117, 23, .1); border-color: rgba(169, 117, 23, .24); color: #7d560f; }
+
+  /* Manifesto */
+  .manifesto { text-align: center; }
+  .manifesto h2 { font-size: clamp(30px, 6.4vw, 54px); }
+  .manifesto .serif { color: var(--ink-soft); max-width: 30em; margin-inline: auto; }
+
+  /* Kaif explainer */
+  .kaif-grid { display: grid; gap: 18px; }
+  .kaif-item { display: flex; gap: 16px; align-items: flex-start; }
+  .kaif-item .num { font-family: "Lora", Georgia, serif; font-size: 30px; color: var(--copper); line-height: 1; flex: none; width: 44px; }
+  .kaif-item p { margin: 0; }
+  .kaif-quote { margin-top: 28px; }
+
+  /* Beliefs */
+  .beliefs { display: grid; gap: 14px; counter-reset: b; }
+  .belief { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; transition: border-color .3s, transform .3s; }
+  .belief:hover { border-color: rgba(110, 140, 116, .5); transform: translateX(4px); }
+  .belief .tick { color: var(--sage-dark); flex: none; margin-top: 2px; }
+
+  /* Path: three states */
+  .states { display: grid; gap: 20px; }
+  .state { position: relative; padding-top: 30px; }
+  .state .step { position: absolute; top: 0; left: 0; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--ink-soft); }
+  .state h3 { font-size: 26px; margin-bottom: 8px; }
+  .state .what { color: var(--ink-soft); margin-bottom: 16px; }
+  .state .line { height: 3px; border-radius: 3px; margin-bottom: 18px; }
+  .state.s1 .line { background: linear-gradient(90deg, var(--sage), rgba(110, 140, 116, .15)); }
+  .state.s2 .line { background: linear-gradient(90deg, var(--copper), rgba(169, 117, 23, .15)); }
+  .state.s3 .line { background: linear-gradient(90deg, var(--clay), rgba(192, 90, 62, .15)); }
+
+  /* Programmes */
+  .tracks { display: grid; gap: 22px; }
+  .track { display: flex; flex-direction: column; gap: 12px; }
+  .track .tag { align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: var(--sage-dark); border-radius: 999px; padding: 5px 13px; }
+  .track .tag.clay { background: var(--clay-dark); }
   .track .tag.soon { background: var(--ink-soft); }
-  .track h3 { margin: 0; }
+  .track h3 { margin: 0; font-size: 24px; }
   .track p { margin: 0; color: var(--ink-soft); }
   .track ul { margin: 0; padding-left: 20px; color: var(--ink-soft); }
   .track li { margin-bottom: 6px; }
   .track .btn { margin-top: auto; width: 100%; }
-  .track.locked { opacity: .72; }
+  .track.locked { opacity: .7; }
+  /* Gradient hairline frame for the flagship card. */
+  .framed { border-radius: calc(var(--radius) + 2px); padding: 2px; background: linear-gradient(135deg, var(--clay), var(--copper) 55%, var(--sage)); box-shadow: var(--shadow-soft); }
+  .framed > .card { border-radius: var(--radius); border-color: transparent; margin: 0; height: 100%; box-shadow: none; }
+  .framed > .card:hover { transform: none; box-shadow: none; }
+  .framed { position: relative; transition: transform .35s cubic-bezier(.175,.885,.32,1.275), box-shadow .3s; }
+  .framed:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+  .flag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--clay-dark); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap; z-index: 2; }
 
+  /* Proof numbers */
   .facts { display: grid; gap: 16px; }
-  .fact { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
-  .fact .num { font-size: 40px; font-weight: 800; color: var(--copper); line-height: 1; margin-bottom: 6px; }
+  .fact { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 22px; transition: border-color .3s, transform .3s; }
+  .alt .fact { background: #fff; }
+  .fact:hover { border-color: rgba(169, 117, 23, .5); transform: translateY(-3px); }
+  .fact .num { font-size: 38px; font-weight: 800; color: var(--copper); line-height: 1; margin-bottom: 8px; letter-spacing: -.02em; }
   .fact .cap { font-size: 15px; color: var(--ink-soft); }
 
-  .author-grid { display: grid; gap: 24px; }
-  .author-photo { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  /* Marquee of stages */
+  .marquee { overflow: hidden; position: relative; padding-block: 6px;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-track { display: flex; width: max-content; gap: 14px; animation: marquee 34s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .chip { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; padding: 11px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); font-size: 15px; color: var(--ink); }
+  .alt .chip { background: #fff; }
+  .chip b { font-weight: 700; }
+  .chip .yr { color: var(--ink-soft); font-size: 13px; }
 
-  footer { background: var(--ink); color: rgba(251, 247, 240, .78); font-size: 14px; padding-block: 36px calc(36px + env(safe-area-inset-bottom)); }
+  /* Stories */
+  .stories { display: grid; gap: 18px; }
+  .story { padding: 24px; border-left: 3px solid var(--clay); background: var(--paper); border-radius: 0 16px 16px 0; }
+  .alt .story { background: #fff; }
+  .story h3 { font-size: 19px; margin-bottom: 8px; }
+  .story p { margin: 0; color: var(--ink-soft); font-family: "Lora", Georgia, serif; font-size: 17px; }
+
+  /* Channel showcase */
+  .posts { display: grid; gap: 14px; }
+  .post { display: block; padding: 20px 22px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; text-decoration: none; color: inherit; transition: border-color .3s, transform .3s, box-shadow .3s; }
+  .alt .post { background: #fff; }
+  .post:hover { border-color: rgba(143, 63, 43, .4); transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+  .post .t { font-weight: 600; font-size: 17px; }
+  .post .m { font-size: 13px; color: var(--ink-soft); margin-top: 6px; }
+
+  /* FAQ */
+  .faq details { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; margin-bottom: 12px; overflow: hidden; }
+  .alt .faq details { background: #fff; }
+  .faq summary { list-style: none; cursor: pointer; padding: 18px 22px; font-weight: 600; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary .chev { transition: transform .25s; color: var(--ink-soft); flex: none; }
+  .faq details[open] summary .chev { transform: rotate(180deg); }
+  .faq .answer { padding: 0 22px 20px; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 16px; }
+
+  /* Final CTA */
+  .final { background: var(--ink); color: var(--paper); text-align: center; }
+  .final h2 { color: var(--paper); }
+  .final .lead { color: rgba(251, 247, 240, .78); }
+  .final .btn { background: var(--paper); color: var(--ink); box-shadow: 0 12px 34px rgba(0, 0, 0, .3); }
+  .final .btn:hover { background: #fff; color: var(--ink); }
+
+  /* Sticky mobile CTA */
+  .sticky-cta {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
+    display: flex; gap: 10px; padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+    background: rgba(251, 247, 240, .95); backdrop-filter: blur(12px); border-top: 1px solid var(--line);
+    transform: translateY(110%); transition: transform .32s ease;
+  }
+  .sticky-cta.show { transform: none; }
+  .sticky-cta a { flex: 1; min-height: 48px; padding: 12px 10px; font-size: 14px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 700; }
+  .sticky-cta .p { background: var(--clay-dark); color: #fff; }
+  .sticky-cta .s { border: 1.5px solid var(--clay-dark); color: var(--clay-dark); }
+
+  footer { background: var(--ink); color: rgba(251, 247, 240, .76); font-size: 14px; padding-block: 40px calc(40px + env(safe-area-inset-bottom)); }
   footer a { color: var(--paper); }
-  .foot-grid { display: grid; gap: 24px; margin-bottom: 24px; }
-  .foot-grid h4 { color: var(--paper); font-size: 16px; margin: 0 0 10px; }
-  .foot-grid a { display: block; margin-bottom: 8px; text-decoration: none; }
+  .foot-grid { display: grid; gap: 26px; margin-bottom: 26px; }
+  .foot-grid h4 { color: var(--paper); font-size: 16px; margin: 0 0 12px; }
+  .foot-grid a { display: block; margin-bottom: 9px; text-decoration: none; }
+  .foot-grid a:hover { text-decoration: underline; }
   .foot-bottom { border-top: 1px solid rgba(251, 247, 240, .18); padding-top: 18px; font-size: 13px; }
 
   @media (min-width: 760px) {
-    section { padding-block: 72px; }
+    section { padding-block: 88px; }
+    .hero { padding-block: 60px 76px; }
+    .hero-grid { grid-template-columns: 1.15fr .85fr; gap: 48px; }
+    .hero-cta { flex-direction: row; }
+    .hero-cta .btn { width: auto; }
+    .kaif-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 36px; }
+    .beliefs { grid-template-columns: repeat(2, 1fr); }
+    .states { grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .tracks { grid-template-columns: repeat(2, 1fr); }
     .facts { grid-template-columns: repeat(3, 1fr); }
-    .author-grid { grid-template-columns: 280px 1fr; align-items: start; }
+    .stories { grid-template-columns: repeat(3, 1fr); }
+    .posts { grid-template-columns: repeat(3, 1fr); }
     .foot-grid { grid-template-columns: repeat(3, 1fr); }
+    .sticky-cta { display: none; }
+  }
+  @media (max-width: 759px) {
+    body { padding-bottom: 72px; }
   }
   @media (max-width: 480px) {
-    header nav { gap: 12px; font-size: 13px; }
+    header nav { gap: 13px; font-size: 13px; }
+    .growth { grid-template-columns: auto auto auto; gap: 12px; padding: 14px 16px; }
+    .growth .now .n { font-size: 28px; }
   }
 </style>
 </head>
 <body>
 
-<div class="draft-banner">Черновик витрины школы. Тексты - рыба, ждут Марка.</div>
+<div class="haze haze-1"></div>
+<div class="haze haze-2"></div>
 
-<header>
+<div class="draft-banner">Черновик витрины школы. Часть текстов ждёт финальной вычитки.</div>
+
+<header id="site-header">
   <div class="wrap bar">
-    <a class="logo" href="/">Школа КАЙФа</a>
+    <a class="logo" href="/">Школа <span>КАЙФа</span></a>
     <nav aria-label="Основная навигация">
-      <a href="#tracks">Направления</a>
+      <a href="#kaif">Что такое кайф</a>
+      <a href="#path">Путь</a>
       <a href="#author">Об Ане</a>
-      <a href="#contacts">Контакты</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <section class="hero">
+  <!-- 1. Hero -->
+  <section class="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div data-reveal>
+        <div class="kicker"><span class="dot"></span>Школа Анны Громовой</div>
+        <h1>Кайф - <span class="accent">это и есть жизнь</span></h1>
+        <p class="lead">Здесь не учат успеху и не заставляют стараться сильнее. Здесь женщине разрешают расслабиться - и с этого начинается всё остальное: тело, отношения, деньги.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#path">Выбрать, с чего начать <span class="arr">→</span></a>
+          <a class="btn btn-ghost" href="https://t.me/bekaifru" target="_blank" rel="noopener noreferrer">Зайти в круг</a>
+        </div>
+        <p class="btn-note">Вход в круг бесплатный, это её телеграм-канал</p>
+      </div>
+      <div class="portrait" data-reveal data-reveal-delay="150">
+        <img src="/anna.jpg" alt="Анна Громова" width="900" height="1200">
+        <div class="portrait-badge">
+          <span class="verified" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <span><b>Анна Громова</b><span>кайфолог, психолог отношений</span></span>
+        </div>
+      </div>
+    </div>
     <div class="wrap">
-      <div class="kicker">Школа Анны Громовой</div>
-      <h1>Перестать тащить всё на себе</h1>
-      <p class="lead">Два направления: вернуть себе тело и отношения - и сделать из телефона своё дело. Оба про одно: жить не на силе воли.</p>
-      <a class="btn" href="#tracks">Выбрать направление</a>
+      <div class="growth" data-reveal>
+        <div class="was"><div class="n">2 204</div><div class="cap">2 января</div></div>
+        <div class="arrow" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+        <div class="now"><div class="n">48 800</div><div class="cap">25 августа</div></div>
+      </div>
+      <p class="growth-note">Подписчиков в её блоге. Рост за 7 месяцев и 23 дня - без рекламы, на своих текстах и роликах.</p>
     </div>
   </section>
 
-  <section id="tracks">
+  <!-- 2. Manifesto -->
+  <section class="alt" id="manifest">
+    <div class="wrap narrow manifesto" data-reveal>
+      <div class="kicker" style="justify-content:center">Манифест</div>
+      <h2>Не терпеть. Ни ради ребёнка, ни ради приличий</h2>
+      <p class="serif">Женщина годами живёт в режиме войны: латы, окоп, ломовая лошадь. Победа на мужском поле - самая дорогая иллюзия в её жизни. Школа КАЙФа про обратное: снять броню и вернуть себе тело, мужчину и вкус к жизни.</p>
+    </div>
+  </section>
+
+  <!-- 3. What kaif actually is -->
+  <section id="kaif">
     <div class="wrap">
-      <div class="kicker">Направления</div>
-      <h2>Чему здесь учат</h2>
-      <p class="lead" style="margin-bottom: 28px;">Каждое направление - отдельная программа со своим входом и своей ценой.</p>
+      <div data-reveal>
+        <div class="kicker"><span class="dot"></span>Матчасть</div>
+        <h2>Что такое кайф на самом деле</h2>
+        <p class="lead" style="max-width:44em">Слово опошлили. Оно не про вещества - оно пришло из арабского и означает состояние блаженства и покоя.</p>
+      </div>
 
-      <div class="tracks">
+      <div class="kaif-grid" style="margin-top:32px">
+        <div class="kaif-item" data-reveal>
+          <div class="num">01</div>
+          <p>При дворах восточных правителей держали <b>специального человека, чья работа - создавать кайф</b>. В этом состоянии правитель лучше чувствовал ситуацию и видел неочевидные ходы.</p>
+        </div>
+        <div class="kaif-item" data-reveal data-reveal-delay="80">
+          <div class="num">02</div>
+          <p>Для простых людей строили хамамы. Кайф ловили и за чашкой чая, и в молельном зале - это была часть уклада, а не награда за труд.</p>
+        </div>
+        <div class="kaif-item" data-reveal data-reveal-delay="160">
+          <div class="num">03</div>
+          <p>Гейши - специалистки по кайфу, у которых постель была далеко не на первом месте. Их учили создавать состояние, а не обслуживать.</p>
+        </div>
+        <div class="kaif-item" data-reveal data-reveal-delay="240">
+          <div class="num">04</div>
+          <p>Русский востоковед Осип Сенковский ещё в 1821 году перевёл это слово просто: <b>«наслаждаться успокоением»</b>.</p>
+        </div>
+      </div>
 
-        <article class="track">
-          <span class="tag">Отношения и тело</span>
-          <h3>Формула Кайфа</h3>
-          <p>Интенсив о том, почему тебя перестали видеть - и как это меняется через тело, а не через уговоры.</p>
-          <ul>
-            <li>14 видеоуроков и практики</li>
-            <li>Работа с телом и границами</li>
-            <li>Бесплатный урок на входе</li>
-          </ul>
-          <a class="btn" href="/formula/">Смотреть интенсив</a>
-        </article>
+      <div class="kaif-quote narrow" data-reveal>
+        <blockquote>
+          Кайф - инструмент, а не награда. Когда женщине хорошо, у неё меняется жизнь.
+          <cite>Анна Громова</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
 
-        <article class="track">
+  <!-- 4. Beliefs -->
+  <section class="alt" id="beliefs">
+    <div class="wrap">
+      <div data-reveal>
+        <div class="kicker"><span class="dot"></span>Во что мы верим</div>
+        <h2>Шесть правил школы</h2>
+      </div>
+      <div class="beliefs" style="margin-top:28px">
+        <div class="belief" data-reveal><span class="tick"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span>Тело - не причина ограничений, а метод.</span></div>
+        <div class="belief" data-reveal data-reveal-delay="60"><span class="tick"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span>Не понять головой, а почувствовать телом.</span></div>
+        <div class="belief" data-reveal data-reveal-delay="120"><span class="tick"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span>Удовольствие - не то, за что стыдно.</span></div>
+        <div class="belief" data-reveal data-reveal-delay="180"><span class="tick"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span>Мы работаем с психикой и телом. Не гадаем и не привораживаем.</span></div>
+        <div class="belief" data-reveal data-reveal-delay="240"><span class="tick"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span>Мужчина и женщина равно велики, но созданы для разного.</span></div>
+        <div class="belief" data-reveal data-reveal-delay="300"><span class="tick"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span>Страдание - это выбор. Лучшая защита - ненападение.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. The path: three states -->
+  <section id="path">
+    <div class="wrap">
+      <div data-reveal>
+        <div class="kicker"><span class="dot"></span>Маршрут</div>
+        <h2>Три состояния, а не прайс-лист</h2>
+        <p class="lead" style="max-width:44em">Выбирают не по цене, а по тому, где ты сейчас.</p>
+      </div>
+      <div class="states" style="margin-top:36px">
+        <div class="state s1" data-reveal>
+          <div class="step">Шаг 1</div>
+          <div class="line"></div>
+          <h3>Отпустить</h3>
+          <p class="what">Перестать трястись, разжать челюсть, вернуть сон.</p>
+        </div>
+        <div class="state s2" data-reveal data-reveal-delay="100">
+          <div class="step">Шаг 2</div>
+          <div class="line"></div>
+          <h3>Почувствовать</h3>
+          <p class="what">Вернуть контакт с телом и с ним.</p>
+        </div>
+        <div class="state s3" data-reveal data-reveal-delay="200">
+          <div class="step">Шаг 3</div>
+          <div class="line"></div>
+          <h3>Кайфовать</h3>
+          <p class="what">Жить из удовольствия, а не из долга.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Programmes -->
+  <section class="alt" id="tracks">
+    <div class="wrap">
+      <div data-reveal>
+        <div class="kicker"><span class="dot"></span>Направления</div>
+        <h2>Чем этот путь проходят</h2>
+        <p class="lead" style="max-width:44em">Каждое направление - отдельная программа со своим входом и своей ценой.</p>
+      </div>
+
+      <div class="tracks" style="margin-top:34px">
+
+        <div class="framed" data-reveal>
+          <span class="flag">Основная программа</span>
+          <article class="card track">
+            <span class="tag clay">Отношения и тело</span>
+            <h3>Формула Кайфа</h3>
+            <p>Интенсив о том, почему тебя перестали видеть - и как это меняется через тело, а не через уговоры.</p>
+            <ul>
+              <li>14 видеоуроков и практики</li>
+              <li>Работа с телом и границами</li>
+              <li>Бесплатный урок на входе</li>
+            </ul>
+            <a class="btn" href="/formula/">Смотреть интенсив <span class="arr">→</span></a>
+          </article>
+        </div>
+
+        <article class="card track" data-reveal data-reveal-delay="100">
           <span class="tag">Своё дело из телефона</span>
           <h3>ТурбоРилс</h3>
           <p>Курс по Instagram: спринт на неделю, марафон на месяц и ВИП с личным ведением.</p>
@@ -182,55 +493,154 @@
             <li>Марафон - 30 дней</li>
             <li>ВИП - с личной поддержкой</li>
           </ul>
-          <a class="btn" href="/delo/">Смотреть курс</a>
+          <a class="btn btn-outline" href="/delo/">Смотреть курс <span class="arr">→</span></a>
         </article>
 
-        <article class="track locked">
+        <article class="card track locked" data-reveal>
           <span class="tag soon">Скоро</span>
-          <h3>Третье направление</h3>
-          <p>Место под следующую программу школы.</p>
-          <div class="todo">Название, обещание и вход - от Ани и Марка.</div>
+          <h3>Телесный класс</h3>
+          <p>Живая практика на разблокировку тела. Название, дата и цена - в работе.</p>
         </article>
 
-        <article class="track locked">
+        <article class="card track locked" data-reveal data-reveal-delay="100">
           <span class="tag soon">Скоро</span>
-          <h3>Четвёртое направление</h3>
-          <p>Место под следующую программу школы.</p>
-          <div class="todo">Название, обещание и вход - от Ани и Марка.</div>
+          <h3>Разбор «Код отношений»</h3>
+          <p>Личный разбор пары и сценария отношений. Готовим к запуску на сайте.</p>
         </article>
 
       </div>
     </div>
   </section>
 
-  <section class="alt" id="author">
+  <!-- 7. Who leads: proof -->
+  <section id="author">
     <div class="wrap">
-      <div class="kicker">Кто ведёт</div>
-      <h2>Анна Громова</h2>
-      <div class="author-grid">
-        <div class="author-photo"><img src="/anna.jpg" alt="Анна Громова" loading="lazy"></div>
-        <div>
-          <blockquote>
-            Место под её собственные слова о том, почему она этому учит.
-            <cite>Цитата - от Марка</cite>
-          </blockquote>
-          <div class="todo">Биография, доказательства и цифры - из задачи 390. Числа ставим только подтверждённые: подписчики, годы практики, количество учениц.</div>
-          <div class="facts" style="margin-top: 20px;">
-            <div class="fact"><div class="num">—</div><div class="cap">Подписчиков</div></div>
-            <div class="fact"><div class="num">—</div><div class="cap">Лет практики</div></div>
-            <div class="fact"><div class="num">—</div><div class="cap">Учениц прошло</div></div>
-          </div>
+      <div data-reveal>
+        <div class="kicker"><span class="dot"></span>Кто ведёт</div>
+        <h2>Анна Громова</h2>
+        <p class="lead" style="max-width:46em">Кайфолог и психолог отношений, основатель Школы КАЙФа. Мастер телесно-эмоциональных практик. До этого - двенадцать лет в медиа.</p>
+      </div>
+
+      <div class="facts" style="margin-top:30px">
+        <div class="fact" data-reveal><div class="num">12 лет</div><div class="cap">в онлайн-СМИ, 11 из них руководила редакциями</div></div>
+        <div class="fact" data-reveal data-reveal-delay="80"><div class="num">8 лет</div><div class="cap">в телесных практиках. Начинала скептиком</div></div>
+        <div class="fact" data-reveal data-reveal-delay="160"><div class="num">100+</div><div class="cap">человек прошли живые тренинги с мужем</div></div>
+      </div>
+
+      <div class="stories" style="margin-top:22px">
+        <div class="story" data-reveal>
+          <h3>Тело</h3>
+          <p>Диагнозы, ставившие под вопрос второе материнство. Двадцать недель практики на разблокировку таза. Беременность в 40 без ЭКО, сын - в 41.</p>
+        </div>
+        <div class="story" data-reveal data-reveal-delay="80">
+          <h3>Роды</h3>
+          <p>Мужа не пустили в родзал. Плейлист, дыхание, самогипноз, пять отказов от эпидуралки - и контроль над процессом в одиночку.</p>
+        </div>
+        <div class="story" data-reveal data-reveal-delay="160">
+          <h3>Уход</h3>
+          <p>Первый брак и избиение с десятидневной дочкой на руках. Решение за пятнадцать минут: звонок хозяйке, маме, подруге с машиной. Замок сменили в тот же день.</p>
         </div>
       </div>
+
+      <div style="margin-top:32px" data-reveal>
+        <p class="eyebrow" style="margin-bottom:14px">Где её видели</p>
+      </div>
+      <div class="marquee" data-reveal>
+        <div class="marquee-track">
+          <span class="chip"><b>Форум в Сколково</b><span class="yr">2025</span></span>
+          <span class="chip"><b>Фестиваль DDX, Коломенское</b><span class="yr">2025</span></span>
+          <span class="chip"><b>Тимирязев Фест</b><span class="yr">гвозди программы</span></span>
+          <span class="chip"><b>Тренинг ЯТРА</b></span>
+          <span class="chip"><b>Фестиваль «Этнокосмос»</b></span>
+          <span class="chip"><b>Академия мастеров А. Вааля</b><span class="yr">2024</span></span>
+          <span class="chip"><b>Интервью у Ирины Хакамады</b></span>
+          <!-- duplicate track keeps the marquee seamless at -50% -->
+          <span class="chip"><b>Форум в Сколково</b><span class="yr">2025</span></span>
+          <span class="chip"><b>Фестиваль DDX, Коломенское</b><span class="yr">2025</span></span>
+          <span class="chip"><b>Тимирязев Фест</b><span class="yr">гвозди программы</span></span>
+          <span class="chip"><b>Тренинг ЯТРА</b></span>
+          <span class="chip"><b>Фестиваль «Этнокосмос»</b></span>
+          <span class="chip"><b>Академия мастеров А. Вааля</b><span class="yr">2024</span></span>
+          <span class="chip"><b>Интервью у Ирины Хакамады</b></span>
+        </div>
+      </div>
+      <div class="todo" style="margin-top:20px">Сюда идут фото со сцен и залов - по кадру на строку. Скрины и снимки из архива добывает владелец.</div>
     </div>
   </section>
 
-  <section id="contacts">
+  <!-- 8. Channel showcase -->
+  <section class="alt" id="circle">
     <div class="wrap">
-      <div class="kicker">Связаться</div>
-      <h2>Остались вопросы</h2>
-      <p class="lead">Напишите - ответим в Telegram.</p>
-      <a class="btn btn-outline" href="https://t.me/Lucky_Anni" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+      <div data-reveal>
+        <div class="kicker"><span class="dot"></span>Круг</div>
+        <h2>Она пишет туда почти каждый день</h2>
+        <p class="lead" style="max-width:44em">Длинные личные тексты и ответы в комментариях. Вход бесплатный, ничего покупать не надо.</p>
+      </div>
+      <div class="posts" style="margin-top:28px">
+        <a class="post" href="https://t.me/bekaifru" target="_blank" rel="noopener noreferrer" data-reveal>
+          <div class="t">Цена твоих побед: что происходит с телом сильной женщины</div>
+          <div class="m">Читать в канале →</div>
+        </a>
+        <a class="post" href="https://t.me/bekaifru" target="_blank" rel="noopener noreferrer" data-reveal data-reveal-delay="80">
+          <div class="t">1500 рублей на месяц и дочь в голодном обмороке</div>
+          <div class="m">Читать в канале →</div>
+        </a>
+        <a class="post" href="https://t.me/bekaifru" target="_blank" rel="noopener noreferrer" data-reveal data-reveal-delay="160">
+          <div class="t">Почему ты стараешься, а он не видит</div>
+          <div class="m">Читать в канале →</div>
+        </a>
+      </div>
+      <div style="margin-top:26px" data-reveal>
+        <a class="btn btn-outline" href="https://t.me/bekaifru" target="_blank" rel="noopener noreferrer">Зайти в круг <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FAQ -->
+  <section id="faq">
+    <div class="wrap narrow faq">
+      <div data-reveal>
+        <div class="kicker"><span class="dot"></span>Вопросы</div>
+        <h2>Что обычно спрашивают</h2>
+      </div>
+      <div style="margin-top:26px" itemscope itemtype="https://schema.org/FAQPage">
+        <details data-reveal itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">Это эзотерика?
+            <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          </summary>
+          <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">Нет. Мы работаем с психикой и телом: дыхание, практики, границы, разбор сценариев. Не гадаем и не привораживаем.</div>
+          </div>
+        </details>
+        <details data-reveal itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">У меня нет времени на себя. Это вообще для меня?
+            <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          </summary>
+          <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">Именно для вас. Времени нет как раз у тех, кто тащит всё сам. Практики короткие и встраиваются в обычный день, отдельного часа они не требуют.</div>
+          </div>
+        </details>
+        <details data-reveal itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">С чего начать, если непонятно, что мне нужно?
+            <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          </summary>
+          <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">С бесплатного урока в интенсиве «Формула Кайфа» или с канала. Оба входа ничего не стоят и ни к чему не обязывают.</div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Final CTA -->
+  <section class="final" id="contacts">
+    <div class="wrap narrow" data-reveal>
+      <h2>Начните с того, что бесплатно</h2>
+      <p class="lead">Урок из интенсива или её канал. Дальше решите сами.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:22px">
+        <a class="btn" href="/formula/">Бесплатный урок <span class="arr">→</span></a>
+        <a class="btn btn-outline" style="color:var(--paper); border-color:rgba(251,247,240,.5)" href="https://t.me/Lucky_Anni" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+      </div>
     </div>
   </section>
 
@@ -246,7 +656,7 @@
       <div>
         <h4>Контакты</h4>
         <a href="mailto:mail@formulakaifa.ru">mail@formulakaifa.ru</a>
-        <a href="https://t.me/gromovu_pro" target="_blank" rel="noopener noreferrer">Telegram: Школа КАЙФа</a>
+        <a href="https://t.me/bekaifru" target="_blank" rel="noopener noreferrer">Telegram: Школа КАЙФа</a>
         <a href="https://www.instagram.com/luckyanni777" target="_blank" rel="noopener noreferrer">Нельзяграм: luckyanni777</a>
       </div>
       <div>
@@ -262,6 +672,41 @@
     </div>
   </div>
 </footer>
+
+<div class="sticky-cta" id="sticky-cta">
+  <a class="s" href="https://t.me/bekaifru" target="_blank" rel="noopener noreferrer">В круг</a>
+  <a class="p" href="/formula/">Бесплатный урок</a>
+</div>
+
+<script>
+  // Reveal on scroll: one observer, unobserve after the first hit.
+  var io = new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.style.transitionDelay = (en.target.dataset.revealDelay || 0) + 'ms';
+      en.target.classList.add('is-in');
+      obs.unobserve(en.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+  document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+
+  // Header densifies past the fold line; mobile CTA slides in once the hero is gone.
+  var header = document.getElementById('site-header');
+  var cta = document.getElementById('sticky-cta');
+  var hero = document.getElementById('hero');
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      header.classList.toggle('scrolled', window.scrollY > 24);
+      cta.classList.toggle('show', hero.getBoundingClientRect().bottom < 0);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
 
 </body>
 </html>
