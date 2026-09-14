@@ -217,6 +217,11 @@
   .tariff.featured { box-shadow: 0 22px 52px rgba(143, 63, 43, .16); }
   .shots img { transition: transform .35s ease, box-shadow .35s ease; }
   .shots figure:hover img { transform: scale(1.02); box-shadow: 0 18px 40px rgba(34, 29, 24, .14); }
+  .shots img { cursor: zoom-in; }
+  .zoom { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(20, 16, 12, .88); cursor: zoom-out; }
+  .zoom[hidden] { display: none; }
+  .zoom img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px; }
+  .zoom-close { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .15); color: #fff; font-size: 28px; line-height: 44px; cursor: pointer; }
   .btn { transition: background .2s, transform .15s, box-shadow .25s; }
   .btn:hover { box-shadow: 0 14px 34px rgba(143, 63, 43, .3); transform: translateY(-2px); }
   .kicker { display: inline-flex; align-items: center; gap: 9px; }
@@ -736,6 +741,27 @@
       a.href = payUrl(a);
     });
   });
+})();
+</script>
+<div class="zoom" id="zoom" hidden role="dialog" aria-modal="true" aria-label="Скриншот крупно">
+  <button class="zoom-close" type="button" aria-label="Закрыть">&times;</button>
+  <img alt="">
+</div>
+<script>
+(function () {
+  var box = document.getElementById('zoom');
+  var big = box.querySelector('img');
+  function close() { box.hidden = true; big.removeAttribute('src'); document.body.style.overflow = ''; }
+  document.querySelectorAll('.shots img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      box.hidden = false;
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  box.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden) close(); });
 })();
 </script>
 </body>
