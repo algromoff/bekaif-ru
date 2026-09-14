@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- Draft until stage 2 (task 391): remove noindex together with the draft banner. -->
 <meta name="robots" content="noindex, nofollow">
-<title>Спринт ТурбоРилс - Анна Громова</title>
-<meta name="description" content="Своё дело из телефона: курс по Instagram Анны Громовой. Спринт 7 дней, марафон 30 дней, ВИП.">
+<title>ТурбоРилс - блог с телефона от часа в день · Анна Громова</title>
+<meta name="description" content="Спринт 7 дней, марафон 30 дней и ВИП. Метод, по которому Анна Громова выросла с 2 204 до 56,8 тысячи подписчиков: телефон, час в день, без рекламы.">
 <meta name="theme-color" content="#FBF7F0">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%238F3F2B'/><text x='50' y='54' font-family='sans-serif' font-weight='700' font-size='54' text-anchor='middle' dominant-baseline='middle' fill='%23FBF7F0'>К</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,6 +110,8 @@
 
   .tariffs { display: grid; gap: 18px; }
   .tariff { display: flex; flex-direction: column; gap: 12px; }
+  /* Class display would otherwise beat the UA rule for [hidden]. */
+  .tariff[hidden] { display: none; }
   .tariff.featured { border: 2px solid var(--clay-dark); }
   .tariff .badge { align-self: flex-start; background: var(--clay-dark); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border-radius: 999px; padding: 4px 12px; }
   .tariff .price { font-family: "Onest", Manrope, "Segoe UI", Roboto, sans-serif; font-size: 44px; font-weight: 800; color: var(--copper); line-height: 1; }
@@ -162,6 +164,8 @@
   .format-list { display: grid; gap: 14px; }
   .format-list .card p { margin: 0; }
   .note { font-size: 14px; color: var(--ink-soft); }
+  /* Meta footnote marker: superscript, brand colour, no underline. */
+  .fnref { font-size: .55em; vertical-align: super; line-height: 0; color: var(--clay-dark); text-decoration: none; }
   .expert-grid { display: grid; gap: 22px; }
   .expert-grid img { border-radius: var(--radius); border: 1px solid var(--line); }
   .expert-grid ul { padding-left: 20px; margin: 0 0 1em; }
@@ -302,11 +306,11 @@
 <section class="hero alt" id="obeshchanie">
   <div class="wrap hero-grid">
     <div>
-      <div class="kicker">Спринт ТурбоРилс · старт 14 сентября</div>
-      <h1>Блог в Instagram<a href="#meta-note" class="fnref">*</a>, который растёт от часа в день</h1>
-      <p class="lead">Метод, по которому я выросла с 2&nbsp;204 до 56&nbsp;700 подписчиков: только телефон и ни рубля на рекламу, первые месяцы - с грудным сыном на руках. За 7 дней пройдёшь его целиком: от настройки аккаунта до первых денег с блога.</p>
+      <div class="kicker">Спринт ТурбоРилс · доступ сразу после оплаты</div>
+      <h1>2&nbsp;204 → 56&nbsp;800 подписчиков за 8 месяцев. Телефон, час в день, ноль рублей на рекламу</h1>
+      <p class="lead">Метод, который мы собрали для себя: только телефон, ни рубля на рекламу, первые месяцы - с грудным сыном на руках. За 7 дней пройдёшь его целиком: от настройки аккаунта до первых денег с блога.</p>
       <div class="facts-row">
-        <span>Старт 14 сентября</span>
+        <span>Начинаешь сегодня</span>
         <span>Около часа в день</span>
         <span>Хватит телефона</span>
         <span>Можно без лица в кадре</span>
@@ -317,7 +321,7 @@
 </section>
 <div class="cta-row alt"><div class="wrap">
   <a class="btn js-cta" data-via="hero" href="#tarify">Выбрать формат</a>
-  <p class="note" style="text-align:center; margin-top:10px">Продажи открыты до 25 сентября. Доступ к урокам сразу после оплаты.</p>
+  <p class="note" style="text-align:center; margin-top:10px">Доступ к спринту - сразу после оплаты. Марафон стартует 25 сентября.</p>
 </div></div>
 
 <!-- 2. Для кого -->
@@ -391,14 +395,14 @@
 
     <div class="case">
       <div class="who">Я, @luckyanni777</div>
-      <div class="delta">Было 2 204 → стало 56 700</div>
+      <div class="delta">Было 2 204 → стало 56,8 тысячи</div>
       <p>Как это шло:</p>
       <ul>
         <li>2 января 2026 - 2 204 подписчика и 100 тыс просмотров за месяц</li>
         <li>первые 30 дней - 18 799 подписчиков</li>
         <li>20 апреля - 28,2 тысячи</li>
         <li>9 мая - 31,8 тысячи и 10,3 млн просмотров за месяц</li>
-        <li>14 сентября - 56,7 тысячи подписчиков</li>
+        <li>14 сентября - 56,8 тысячи подписчиков</li>
       </ul>
       <p>Примерно с 8 тысяч подписчиков пошли предложения: сначала товары по бартеру, потом за деньги. С мая, через 5 месяцев после старта, доход с блога выше медианной зарплаты по стране.</p>
       <div class="shots shots-4">
@@ -424,7 +428,7 @@
     <div class="case">
       <div class="who">Моя свекровь, @ai_groma, 66 лет</div>
       <div class="delta">Было 0 → стало 22,9 тысячи</div>
-      <p>Блог никогда не вела, видео не снимала, в алгоритмах не разбиралась. 3 марта впервые в жизни поставила себе Instagram. В середине апреля у неё было 20 тысяч подписчиков. Метод тот же: 10 рилс в день, час времени.</p>
+      <p>Блог никогда не вела, видео не снимала, в алгоритмах не разбиралась. 3 марта впервые в жизни поставила себе Instagram<a href="#meta-note" class="fnref">*</a>. В середине апреля у неё было 20 тысяч подписчиков. Метод тот же: 10 рилс в день, час времени.</p>
       <div class="todo">Скрин кейса - от оператора.</div>
     </div>
 
@@ -546,7 +550,7 @@
         <p><strong>Анна Громова, 41 год. Журналист, психолог-сексолог.</strong></p>
         <ul>
           <li>Больше 10 лет шеф-редактор в СМИ: «Лайф Ньюс», «Комсомольская правда», «Царьград», «Вкурсе.ру». Делала миллионные охваты в онлайн-таблоидах - и знаю, на что человек нажимает, а мимо чего листает.</li>
-          <li>В Instagram по системе ТурбоРилс с января 2026. С 2 204 до 56 700 подписчиков, больше десятка роликов с миллионом просмотров.</li>
+          <li>В Instagram по системе ТурбоРилс с января 2026. С 2 204 до 56,8 тысячи подписчиков, больше десятка роликов с миллионом просмотров.</li>
           <li>Всё делала сама, первые месяцы с грудным сыном на руках, без нянь и бабушек.</li>
           <li>С мая доход с блога выше медианной зарплаты по стране (75 000 ₽), сейчас выше средней - 114 743 ₽ по данным Росстата.</li>
         </ul>
@@ -561,7 +565,7 @@
   <div class="wrap">
     <div class="kicker">Тарифы</div>
     <h2>Выбери формат</h2>
-    <p class="lead">Старт 14 сентября. Продажи до 25 сентября.</p>
+    <p class="lead">Спринт открывается сразу после оплаты. Марафон стартует 25 сентября.</p>
     <div class="tariffs">
 
       <div class="card tariff">
