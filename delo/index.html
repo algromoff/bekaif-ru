@@ -88,7 +88,7 @@
 
   .hero { padding-block: 48px 32px; background: var(--paper-solid); }
   .hero .lead { font-size: 19px; color: var(--ink-soft); }
-  .hero-photo { border-radius: var(--radius); margin-top: 24px; aspect-ratio: 4 / 5; max-width: 100%; }
+  .hero-shot { display: block; width: 100%; max-width: 340px; margin: 24px auto 0; border-radius: var(--radius); border: 1px solid var(--line); cursor: zoom-in; }
 
   .cards { display: grid; gap: 16px; }
   .card {
@@ -139,7 +139,7 @@
     .tariffs { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
     .tariff .btn { width: 100%; min-width: 0; }
     .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
-    .hero-photo { margin-top: 0; }
+    .hero-shot { margin-top: 0; }
   }
 
   .facts-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0 24px; }
@@ -312,7 +312,7 @@
         <span>Можно без лица в кадре</span>
       </div>
     </div>
-    <div><img class="hero-photo" src="/anna.jpg" alt="Анна Громова" loading="lazy"></div>
+    <div><img class="hero-shot" src="/delo/img/hero-profile-sep2026.jpg" alt="Профиль @luckyanni777: 56,8 тысячи подписчиков, 18,6 млн просмотров за 30 дней" width="800" height="1492"></div>
   </div>
 </section>
 <div class="cta-row alt"><div class="wrap">
@@ -752,7 +752,7 @@
   var box = document.getElementById('zoom');
   var big = box.querySelector('img');
   function close() { box.hidden = true; big.removeAttribute('src'); document.body.style.overflow = ''; }
-  document.querySelectorAll('.shots img').forEach(function (img) {
+  document.querySelectorAll('.shots img, .hero-shot').forEach(function (img) {
     img.addEventListener('click', function () {
       big.src = img.currentSrc || img.src;
       big.alt = img.alt;
