@@ -595,8 +595,7 @@
         <a class="btn js-pay" data-product="delo_marafon" data-tariff="marafon" href="#tarify">Иду в марафон</a>
       </div>
 
-      <!-- VIP stays hidden until Anna confirms the tariff (Mark's note, task 390). -->
-      <div class="card tariff" id="tariff-vip" hidden>
+      <div class="card tariff" id="tariff-vip">
         <span class="badge">4 места</span>
         <h3>ВИП</h3>
         <p class="note">Марафон + личная работа со мной</p>
@@ -694,9 +693,8 @@
 <script>
 (function () {
   // Payment: Anna's shop page for landing buttons (lucky-anni-bot, task 119).
-  // Stays off until the three products exist in the bot's products.json -
-  // otherwise the shop page redirects an unknown product into the Telegram bot.
-  var PAY_ENABLED = false;
+  // Products delo_sprint, delo_marafon, delo_vip live in the bot's products.json.
+  var PAY_ENABLED = true;
   var PAY_BASE = "https://bot.bekaif.ru/pay";
   // Yandex Metrika counter id; null = counter not created yet.
   var YM_ID = null;
