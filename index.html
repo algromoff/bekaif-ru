@@ -280,6 +280,10 @@
   .foot-grid h4 { color: var(--paper); font-size: 16px; margin: 0 0 12px; }
   .foot-grid a { display: block; margin-bottom: 9px; text-decoration: none; }
   .foot-grid a:hover { text-decoration: underline; }
+  .foot-docs summary { list-style: none; cursor: pointer; color: var(--paper); font-size: 16px; font-weight: 700; margin: 0 0 12px; display: inline-flex; align-items: center; gap: 8px; }
+  .foot-docs summary::-webkit-details-marker { display: none; }
+  .foot-docs summary::after { content: "\25BE"; font-size: 13px; transition: transform .25s; }
+  .foot-docs[open] summary::after { transform: rotate(180deg); }
   .foot-bottom { border-top: 1px solid rgba(251, 247, 240, .18); padding-top: 18px; font-size: 13px; }
 
   @media (min-width: 760px) {
@@ -658,14 +662,16 @@
         <a href="https://www.instagram.com/luckyanni777" target="_blank" rel="noopener noreferrer">Нельзяграм*: luckyanni777</a>
       </div>
       <div>
-        <h4>Документы</h4>
-        <a href="/privacy/">Политика конфиденциальности</a>
-        <a href="/offer/">Публичная оферта</a>
-        <a href="/refund/">Условия возврата</a>
-        <a href="/terms/">Пользовательское соглашение</a>
-        <a href="/consent/">Согласие на обработку данных</a>
-        <a href="/cookies/">Политика cookie</a>
-        <a href="/contacts/">Контакты и реквизиты</a>
+        <details class="foot-docs">
+          <summary>Документы</summary>
+          <a href="/privacy/">Политика конфиденциальности</a>
+          <a href="/offer/">Публичная оферта</a>
+          <a href="/refund/">Условия возврата</a>
+          <a href="/terms/">Пользовательское соглашение</a>
+          <a href="/consent/">Согласие на обработку данных</a>
+          <a href="/cookies/">Политика cookie</a>
+          <a href="/contacts/">Контакты и реквизиты</a>
+        </details>
       </div>
     </div>
     <div class="foot-bottom">

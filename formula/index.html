@@ -1134,6 +1134,22 @@
             color: var(--primary);
         }
 
+        .footer-docs summary {
+            list-style: none;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .footer-docs summary::-webkit-details-marker { display: none; }
+        .footer-docs summary::after { content: "\25BE"; font-size: 14px; transition: transform .25s; }
+        .footer-docs[open] summary::after { transform: rotate(180deg); }
+
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 30px;
@@ -1278,6 +1294,37 @@
             font-size: 15px;
             line-height: 1.6;
         }
+
+        .price-card { display: flex; flex-direction: column; }
+
+        .price-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 25px;
+            text-align: left;
+            flex: 1;
+        }
+
+        .price-list li {
+            position: relative;
+            padding: 0 0 10px 22px;
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--text-primary);
+        }
+
+        .price-list li::before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 9px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .price-buy { align-self: stretch; text-align: center; }
 
         /* === HOW-TO STEPS === */
         .steps-list {
@@ -1480,17 +1527,38 @@
                     <div class="price-card fade-in-on-scroll">
                         <h3>Сама</h3>
                         <div class="price-value">8 990 ₽</div>
-                        <p>Все уроки и практики в боте, проходишь в своём темпе.</p>
+                        <p>Все уроки и практики в боте. Проходишь в своём темпе, 20-30 минут в день.</p>
+                        <ul class="price-list">
+                            <li>14 видеоуроков от 5 до 25 минут</li>
+                            <li>Телесные практики и две медитации</li>
+                            <li>Задания на каждый день: уроки выходят в понедельник, вторник и среду, с пятницы по воскресенье - практика</li>
+                            <li>Уроки можно пересматривать сколько угодно раз</li>
+                        </ul>
+                        <a class="btn btn-primary price-buy" href="https://t.me/Lucky_Anni_bot?start=fbuy_sama" aria-label="Купить тариф «Сама» за 8 990 ₽">Купить за 8 990 ₽</a>
                     </div>
                     <div class="price-card fade-in-on-scroll">
                         <h3>Группа</h3>
                         <div class="price-value">29 990 ₽</div>
-                        <p>Уроки, 4 встречи с Аней в Zoom по четвергам в 20:00 МСК и чат группы.</p>
+                        <p>Уроки плюс живая работа с Аней. Четыре недели вместе с группой, со старта 20 октября.</p>
+                        <ul class="price-list">
+                            <li>Все уроки, практики и медитации курса</li>
+                            <li>4 встречи с Аней в Zoom: четверги 22.10, 29.10, 05.11 и 12.11, 20:00 по Москве</li>
+                            <li>Чат группы, где можно задать вопрос между встречами</li>
+                            <li>Задания на каждый день, 20-30 минут</li>
+                        </ul>
+                        <a class="btn btn-primary price-buy" href="https://t.me/Lucky_Anni_bot?start=fbuy_gruppa" aria-label="Купить тариф «Группа» за 29 990 ₽">Купить за 29 990 ₽</a>
                     </div>
                     <div class="price-card fade-in-on-scroll">
                         <h3>ВИП</h3>
                         <div class="price-value">59 990 ₽</div>
-                        <p>Всё из «Группы» и две личные сессии с Аней.</p>
+                        <p>Курс, группа и личная работа с Аней. Две встречи один на один и возможность писать ей в личку все 4 недели курса.</p>
+                        <ul class="price-list">
+                            <li>Две личные сессии с Аней один на один: разбираете твою ситуацию, Аня подбирает практики под тебя</li>
+                            <li>Ответы Ани в личке все 4 недели курса, когда что-то не идёт или хочется спросить</li>
+                            <li>Все уроки, практики и медитации курса</li>
+                            <li>4 встречи с Аней в Zoom по четвергам в 20:00 и чат группы</li>
+                        </ul>
+                        <a class="btn btn-primary price-buy" href="https://t.me/Lucky_Anni_bot?start=fbuy_vip" aria-label="Купить тариф «ВИП» за 59 990 ₽">Купить за 59 990 ₽</a>
                     </div>
                 </div>
                 <div class="cta-buttons">
@@ -1719,14 +1787,16 @@
                 </div>
 
                 <div class="footer-section">
-                    <h4>Документы</h4>
-                    <a href="/privacy/">Политика конфиденциальности</a>
-                    <a href="/offer/">Публичная оферта</a>
-                    <a href="/refund/">Условия возврата</a>
-                    <a href="/terms/">Пользовательское соглашение</a>
-                    <a href="/consent/">Согласие на обработку данных</a>
-                    <a href="/cookies/">Политика cookie</a>
-                    <a href="/contacts/">Контакты и реквизиты</a>
+                    <details class="footer-docs">
+                      <summary>Документы</summary>
+                      <a href="/privacy/">Политика конфиденциальности</a>
+                      <a href="/offer/">Публичная оферта</a>
+                      <a href="/refund/">Условия возврата</a>
+                      <a href="/terms/">Пользовательское соглашение</a>
+                      <a href="/consent/">Согласие на обработку данных</a>
+                      <a href="/cookies/">Политика cookie</a>
+                      <a href="/contacts/">Контакты и реквизиты</a>
+                    </details>
                 </div>
             </div>
 
