@@ -128,7 +128,12 @@
 
   footer { background: var(--ink); color: rgba(251, 247, 240, .78); font-size: 14px; padding-block: 36px calc(36px + env(safe-area-inset-bottom)); }
   footer a { color: var(--paper); }
-  footer .links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-bottom: 16px; }
+  footer .links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .foot-docs { margin-bottom: 16px; }
+  .foot-docs summary { list-style: none; cursor: pointer; color: var(--paper); font-size: 16px; font-weight: 700; margin-bottom: 12px; display: inline-flex; align-items: center; gap: 8px; }
+  .foot-docs summary::-webkit-details-marker { display: none; }
+  .foot-docs summary::after { content: "\25BE"; font-size: 13px; transition: transform .25s; }
+  .foot-docs[open] summary::after { transform: rotate(180deg); }
 
   @media (min-width: 760px) {
     :root { --gutter: 32px; }
@@ -664,15 +669,18 @@
 
 <footer>
   <div class="wrap">
-    <div class="links">
-      <a href="/offer/">Договор-оферта</a>
-      <a href="/refund/">Условия возврата</a>
-      <a href="/terms/">Пользовательское соглашение</a>
-      <a href="/privacy/">Политика обработки персональных данных</a>
-      <a href="/consent/">Согласие на обработку персональных данных</a>
-      <a href="/cookies/">Политика cookie</a>
-      <a href="/contacts/">Контакты и реквизиты</a>
-    </div>
+    <details class="foot-docs">
+      <summary>Документы</summary>
+      <div class="links">
+        <a href="/offer/">Договор-оферта</a>
+        <a href="/refund/">Условия возврата</a>
+        <a href="/terms/">Пользовательское соглашение</a>
+        <a href="/privacy/">Политика обработки персональных данных</a>
+        <a href="/consent/">Согласие на обработку персональных данных</a>
+        <a href="/cookies/">Политика cookie</a>
+        <a href="/contacts/">Контакты и реквизиты</a>
+      </div>
+    </details>
     <p>Вопросы по оплате и доступу: <a href="https://t.me/LubovForte" target="_blank" rel="noopener">@LubovForte</a></p>
     <p>ИП Громова Анна Михайловна · ИНН 590313170202 · ОГРНИП 326508100331630</p>
     <p id="meta-note" class="note">* Instagram принадлежит компании Meta, деятельность которой признана экстремистской и запрещена в России.</p>
