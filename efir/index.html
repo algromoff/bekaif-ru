@@ -30,6 +30,10 @@
   .who { color:var(--wine); font-size:15px; margin:0 0 12px; }
   .timer { background:var(--wine); color:#fff; border-radius:12px; padding:12px 14px; margin:14px 0; text-align:center; }
   .timer b { font-size:22px; letter-spacing:.02em; }
+  .t-left { display:flex; justify-content:center; gap:6px; margin:8px 0 2px; }
+  .t-left span { background:rgba(255,255,255,.14); border-radius:8px; min-width:58px; padding:6px 4px 4px;
+                 font-size:28px; font-weight:800; line-height:1.1; font-variant-numeric:tabular-nums; }
+  .t-left em { display:block; font-style:normal; font-weight:400; font-size:11px; opacity:.85; }
   .timer small { display:block; opacity:.85; font-size:13px; margin-top:2px; }
   .btn { display:block; text-align:center; text-decoration:none; font-weight:700;
          padding:16px 18px; border-radius:12px; margin:10px 0 0; font-size:18px; }
@@ -203,10 +207,10 @@
     if (left <= 0) { document.body.classList.add('ended'); return; }
     var s = Math.floor(left / 1000), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600),
         m = Math.floor(s % 3600 / 60), sec = s % 60;
-    var txt = (d ? d + ' ' + plural(d, 'день', 'дня', 'дней') + ' ' : '') +
-              h + ' ' + plural(h, 'час', 'часа', 'часов') + ' ' +
-              m + ' мин ' + (d ? '' : sec + ' сек');
-    document.querySelectorAll('.t-left').forEach(function (el) { el.textContent = txt; });
+    function cell(n, a, b, c) { return '<span>' + (n < 10 ? '0' : '') + n + '<em>' + plural(n, a, b, c) + '</em></span>'; }
+    var html = cell(d, 'день', 'дня', 'дней') + cell(h, 'час', 'часа', 'часов') +
+               cell(m, 'минута', 'минуты', 'минут') + cell(sec, 'секунда', 'секунды', 'секунд');
+    document.querySelectorAll('.t-left').forEach(function (el) { el.innerHTML = html; });
     setTimeout(tick, 1000);
   }
   tick();
