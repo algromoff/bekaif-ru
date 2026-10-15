@@ -1337,6 +1337,26 @@
 
         .price-buy { align-self: stretch; text-align: center; }
 
+        /* 728: плашка спеццены для участниц эфира над тарифами */
+        .efir-banner {
+            background: #F2E9DC;
+            border: 1px solid #E6DCCB;
+            border-left: 4px solid var(--primary);
+            border-radius: 15px;
+            padding: 24px;
+            margin: 30px auto 0;
+            max-width: 720px;
+            text-align: center;
+        }
+
+        .efir-banner p {
+            color: var(--primary-dark);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.45;
+            margin-bottom: 16px;
+        }
+
         /* 728: строка-итог тарифа и метка «Рекомендую» */
         .price-card .price-summary {
             color: var(--primary-dark);
@@ -1455,8 +1475,8 @@
             <div class="pre-headline">ПРОГРАММА АННЫ ГРОМОВОЙ. СТАРТ 20 ОКТЯБРЯ</div>
             <h1>Почему он перестал тебя <span class="highlight">видеть</span> - и как это меняется через тело</h1>
             <p class="hero-subtitle">Для тех, кто живёт рядом с мужчиной, а чувствует себя одной. Четыре недели, чтобы вернуть тепло в отношения, которые есть, - или спокойно решить, оставаться ли в них.</p>
-            <a class="btn btn-primary" href="https://bot.bekaif.ru/formula" aria-label="Пройти предзапись и забрать гайд">Пройти предзапись и забрать гайд</a>
-            <p class="section-intro" style="margin-top:20px; margin-bottom:0; max-width:600px;">5 вопросов, пара минут. Сразу - гайд Ани «Три войны с мужчиной» и место на эфире 15 октября.</p>
+            <a class="btn btn-primary" href="#pricing" aria-label="Выбрать формат">Выбрать формат</a>
+            <p class="section-intro" style="margin-top:20px; margin-bottom:0; max-width:600px;">Спеццена для участниц эфира - в боте до 17 октября, 20:00 по Москве.</p>
         </section>
 
         <!-- PAIN POINTS -->
@@ -1547,6 +1567,10 @@
         <section class="pricing" id="pricing">
             <div class="container">
                 <h2>Тарифы</h2>
+                <div class="efir-banner fade-in-on-scroll">
+                    <p>Была на эфире? Твои специальные цены уже в боте.</p>
+                    <a class="btn btn-primary" href="https://t.me/Lucky_Anni_bot?start=formula_efir" target="_blank" rel="noopener" aria-label="Открыть предложение для участниц эфира">Открыть предложение</a>
+                </div>
                 <div class="pricing-grid">
                     <div class="price-card fade-in-on-scroll">
                         <h3>Сама</h3>
@@ -1592,7 +1616,7 @@
                 <p class="price-credit">Купила практикум «Благодарность»? На оплате укажи ту же почту - курс станет на 490&nbsp;₽ дешевле.</p>
                 <p class="price-credit">Можно в рассрочку. Напиши Любови в Telegram - <a href="https://t.me/LubovForte" target="_blank" rel="noopener">@LubovForte</a>, она подскажет, как оформить.</p>
                 <div class="cta-buttons">
-                    <a class="btn btn-primary" href="https://bot.bekaif.ru/formula" aria-label="Пройти предзапись и забрать гайд">Пройти предзапись и забрать гайд</a>
+                    <a class="btn btn-primary" href="#pricing" aria-label="Выбрать формат">Выбрать формат</a>
                 </div>
             </div>
         </section>
@@ -1600,15 +1624,13 @@
         <!-- HOW TO JOIN -->
         <section class="format-section" id="how-to">
             <div class="container">
-                <h2>Сейчас идёт предзапись</h2>
+                <h2>Продажи открыты</h2>
                 <ol class="steps-list fade-in-on-scroll">
-                    <li>Пройди анкету в Telegram - 5 вопросов, пара минут.</li>
-                    <li>Сразу получишь гайд Ани «Три войны с мужчиной».</li>
-                    <li>15 октября в 20:00 по Москве - эфир с Аней в Zoom. Ссылку пришлём в бота.</li>
-                    <li>20 октября - старт группы.</li>
+                    <li>Старт группы - 20 октября.</li>
+                    <li>Встречи с Аней в Zoom по четвергам в 20:00 по Москве: 22 и 29 октября, 5 и 12 ноября.</li>
                 </ol>
                 <div class="cta-buttons">
-                    <a class="btn btn-primary" href="https://bot.bekaif.ru/formula" aria-label="Пройти предзапись и забрать гайд">Пройти предзапись и забрать гайд</a>
+                    <a class="btn btn-primary" href="#pricing" aria-label="Выбрать формат">Выбрать формат</a>
                 </div>
             </div>
         </section>
@@ -1785,8 +1807,8 @@
                 </p>
 
                 <div class="cta-buttons">
-                    <a class="btn btn-primary" href="https://bot.bekaif.ru/formula" aria-label="Пройти предзапись и забрать гайд">
-                        Пройти предзапись и забрать гайд
+                    <a class="btn btn-primary" href="#pricing" aria-label="Выбрать формат">
+                        Выбрать формат
                     </a>
                     <a class="btn btn-secondary" href="https://t.me/Lucky_Anni?text=Добрый%20день.%0AПосмотрела%20ваш%20сайт%20Формула%20Кайфа%2C%20возникли%20вопросы." target="_blank" rel="noopener noreferrer" aria-label="Задать вопрос в поддержку">
                         Остались вопросы - написать
@@ -1837,7 +1859,7 @@
 
     <!-- mobile-only bar, revealed once the hero is out of sight -->
     <div class="sticky-cta" id="stickyCta">
-        <a class="btn btn-primary" href="https://bot.bekaif.ru/formula">Пройти предзапись и забрать гайд</a>
+        <a class="btn btn-primary" href="#pricing">Выбрать формат</a>
     </div>
 
     <script>
